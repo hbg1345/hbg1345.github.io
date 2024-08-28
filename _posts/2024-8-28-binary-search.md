@@ -107,7 +107,10 @@ n이 크면 클수록 이분 탐색이 유용함을 알 수 있다.
 탐색 범위가 하나로 좁혀졌으므로 탐색을 종료한다.
 
 위 과정을 C++코드로 구현하면 다음과 같다.
-``` c
+
+<div style="background-color: rgb(50, 50, 50);">
+
+``` cpp
 int height[11] =
 { 0, 175, 181, 172, 158, 155, 169, 183, 188, 165, 181 };
 sort(height, height + 11); // 이분 탐색을 위한 데이터 정렬
@@ -125,9 +128,10 @@ if (height[low] == target_height)
     printf("%d번 째 사람의 키가 %dcm이다.", low,
         target_height);
 else printf("%d번 째 사람의 키가 %dcm로 %dcm이상 중 가장 앞에 있는 원소다.",
-    low, height[low], target_height);
-    
+    low, height[low], target_height); 
 ```
+</div>
+
 흥미가 있다면 target_height를 173으로 설정하고 코드를 실행해보길 바라며, 다음 포스팅은 그와 관련된 것으로 할 생각이다.
 
 이분 탐색은 정말 빠른 시간 복잡도를 가지지만,   
