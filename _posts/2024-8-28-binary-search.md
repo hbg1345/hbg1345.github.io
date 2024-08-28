@@ -18,17 +18,6 @@ title: "[알고리즘] 이분 탐색(Binary Search)에 대하여"
 모든 원소를 하나씩 보며 내가 찾고 있는 원소인지 확인하는 방법이다.  
 예를 들어, 사람 10명의 키가 다음과 같다고 하자.
 
-| Flag                | Code | Region         |
-|:--------------------|:-----|:---------------|
-| png/EU.png   | EU   | European Union |
-| png/WW.png   | WW   | World          |
-| png/CNA.png | CNA  | North America  |
-| png/CSA.png | CSA  | South America  |
-| png/CEU.png | CEU  | Europe         |
-| png/CAF.png | CAF  | Africa         |
-| png/CAS.png | CAS  | Asia           |
-| png/COC.png | COC  | Oceania        |
-
 
 |사람|1|2|3|4|5|6|7|8|9|10|
 |-|-|-|-|-|-|-|-|-|-|-|
