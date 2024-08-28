@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+인공지능, 알고리즘, 전공 공부 내용 들을 정리하는 곳입니다.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[hbg1345@gmail.com](mailto:email@domain.com)
