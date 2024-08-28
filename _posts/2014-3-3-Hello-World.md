@@ -13,7 +13,8 @@ title: 블로그를 시작하며
 다시 이해해야 하고 어떤 사고로 접근했는지 다시 떠올려야 하는 문제가 있다.
 
 블로그로 관련 기록을 포스팅해서 이런 문제점들을 해결하고 좋은 개발자를 목표로 하고자 한다.  
-
+<!--
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
 The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+-->
