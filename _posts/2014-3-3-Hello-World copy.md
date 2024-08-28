@@ -1,10 +1,4 @@
 ---
 layout: post
-title: [알고리즘] 이분 탐색(Binary Search)에 대하여
+title: "[알고리즘] 이분 탐색(Binary Search)에 대하여"
 ---
-
-
-
-![_config.yml]({{ site.baseurl }}/images/config.png)
-
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
