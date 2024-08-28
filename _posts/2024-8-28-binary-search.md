@@ -75,32 +75,32 @@ n이 크면 클수록 이분 탐색이 유용함을 알 수 있다.
 &#91;1, 11&#41;: 1~10이 우리의 타겟이 있을 수 있는 위치다.  
 이제 해당 구간의 중앙에 위치한 (1 + 11)/2 = 6번째 원소를 확인한다.  
 
-|사람|<span style="color:yellowgreen">1|2|3|4|5|<span style="color:red">6</span>|7|8|9|10|<span style="color:yellowgreen">11
+|사람|<span style="color:blue">1|2|3|4|5|<span style="color:red">6</span>|7|8|9|10|<span style="color:blue">11
 |-|-|-|-|-|-|-|-|-|-|-|-|
 |키|155|158|165|169|<span style="color:#ffd33d"> 172</span>|175|181|181|183|188|-
 
 6번째 원소인 175는 찾는 값인 172보다 크고, 데이터가 오름차순이므로 6번째 이후로는 172가 없다는 것을 알 수 있다.  
 이를 바탕으로 새로운 탐색 범위는 &#91;1, 6&#41;이 된다.
 
-|사람|<span style="color:yellowgreen">1|2|<span style="color:red">3</span>|4|5|<span style="color:yellowgreen">6|7|8|9|10|11
+|사람|<span style="color:blue">1|2|<span style="color:red">3</span>|4|5|<span style="color:blue">6|7|8|9|10|11
 |-|-|-|-|-|-|-|-|-|-|-|-|
 |키|155|158|165|169|<span style="color:#ffd33d"> 172</span>|175|181|181|183|188|-
 
 이제 다시 (1+6)/2 = 3번 째 원소인 165는 172 이하이므로 3번째 미만, 즉 2번째 이하로는 172가 없다. 따라서 새로운 탐색 범위는 &#91;3, 6&#41;이 된다.
 
-|사람|1|2|<span style="color:yellowgreen">3|<span style="color:red">4|5|<span style="color:yellowgreen">6|7|8|9|10|11
+|사람|1|2|<span style="color:blue">3|<span style="color:red">4|5|<span style="color:blue">6|7|8|9|10|11
 |-|-|-|-|-|-|-|-|-|-|-|-|
 |키|155|158|165|169|<span style="color:#ffd33d"> 172</span>|175|181|181|183|188|-
 
 또 (3 + 6)/2 = 4번 째 원소인 169는 172 이하이므로, 4번째 미만, 즉 3번 째 이하로는 172가 없다. 새로운 탐색 범위는 &#91;4, 6&#41;이다.
 
-|사람|1|2|3|<span style="color:yellowgreen">4|<span style="color:red">5|<span style="color:yellowgreen">6|7|8|9|10|11|
+|사람|1|2|3|<span style="color:blue">4|<span style="color:red">5|<span style="color:blue">6|7|8|9|10|11|
 |-|-|-|-|-|-|-|-|-|-|-|-|
 |키|155|158|165|169|<span style="color:#ffd33d"> 172</span>|175|181|181|183|188|-|
 
 마지막으로 (4+6)/2 = 5번 째 원소인 172는 172이하이므로, 5번째 미만, 즉 4번 째 이하로는 172가 없다. 새로운 탐색 범위는 &#91;5, 6&#41;이다.
 
-|사람|1|2|3|4|<span style="color:orange">5|<span style="color:yellowgreen">6|7|8|9|10|11
+|사람|1|2|3|4|<span style="color:blueviolet">5|<span style="color:blue">6|7|8|9|10|11
 |-|-|-|-|-|-|-|-|-|-|-|-|
 |키|155|158|165|169|<span style="color:#ffd33d"> 172</span>|175|181|181|183|188|-
 
@@ -139,6 +139,7 @@ else printf("%d번 째 사람의 키가 %dcm로 %dcm이상 중 가장 앞에 있
 
  
  > ### TMI  
+
  첫 블로그 글을 써보았는데, 마크 다운 문법을 아직 잘 모르다보니 잘 정리가 되었는지 모르겠다.  
  다음 포스팅까지 힘내보아야겠다!
 
