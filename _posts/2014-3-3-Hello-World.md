@@ -1,9 +1,18 @@
 ---
 layout: post
-title: I'm now changing this file!
+title: 블로그를 시작하며
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+개인적으로 진행한 프로젝트를 정리하고자 블로그를 시작하기로 마음먹었다.
+성취감도 얻을 수 있고 동기부여도 될 것 같아서 기대가 된다.
+
+그리고 더 중요한 건 나의 기록을 공개하면 내가 좀더 개발을 체계적으로 할 것 같다는 생각이다.
+혼자서 프로젝트를 관리하면 나만 보는 코드이다 보니 주석도 제대로 달지 않고 최대한 빨리
+끝내는 것을 최우선 목표로 잡게 된다. 
+이렇게 프로젝트를 끝내고 나면 성공의 여부와 관계 없이 몇 개월만 지나도 내가 짠 코드를 처음부터
+다시 이해해야 하고 어떤 사고로 접근했는지 다시 떠올려야 하는 문제가 있다.
+
+블로그로 관련 기록을 포스팅해서 이런 문제점들을 해결하고 좋은 개발자를 목표로 하고자 한다.
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
