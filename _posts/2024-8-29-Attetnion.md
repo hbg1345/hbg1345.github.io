@@ -18,7 +18,7 @@ query, key, value, 결과값은 모두 벡터이다.
 
 $$ \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^T}{\sqrt{d_k}}\right) V $$
 
-
+ $$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $$
 
 
 
