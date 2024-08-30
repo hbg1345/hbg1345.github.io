@@ -14,7 +14,8 @@ title: "[논문 리뷰] Attention is all you need"
 query, key, value, 결과값은 모두 벡터이다.   
 결과값은 value의 가중합으로 결정되는데, 이 때 각 value가중치는 대응하는 key와 query의 유사도다.  
 
-문장을 읽기만 해서는 이해하기가 좀 어려운데, 수식으로 보는 편이 빠르다.
+문장을 읽기만 해서는 이해하기가 좀 어려운데, 수식으로 보는 편이 빠르다.  
+
 $$\operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^T}{\sqrt{d_k}}\right) V$$
 
 
