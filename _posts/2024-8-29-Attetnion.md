@@ -6,7 +6,7 @@ title: "[논문 리뷰] Attention is all you need"
 
 >## Attention이 내가 필요한 모든 것?
 
-논문의 제목이 상당히 파격적인데, 논문에서 제시한 트랜스포머 모델의 성능 또한 그러했다. Attention은 현재 대부분의 인공지능에 사용될 만큼 중요한 메커니즘이라 할 수 있다.
+논문의 제목이 상당히 파격적인데, 논문에서 제시한 트랜스포머 모델의 성능 또한 그러했다. 나온지 수년이 지난 지금도 Attention은 현재 대부분의 인공지능에 포함되는 핵심 메커니즘이다. 
 >## Attention
 
 논문에서는 attention을 다음과 같이 설명한다.  
@@ -65,6 +65,7 @@ key벡터의 차원이 커지면, 스칼라 곱이 매우 큰 값을 가질 수 
 $$ \operatorname{Scaled-Attention}(Q, K, V)=\operatorname{softmax}\left({\frac{QK^T}{\sqrt{d_k}}}\right) V $$
 
 >## Multi-Head Attention
+
 Multi-Head(layer) attention은 어텐션을 여러 번 **병렬**로 적용하는 방법이다.  
 물론, 같은 Q, K, V에 대한 어텐션 함수의 출력은 항상 같다.  
 그래서 각 행렬에 적절한 가중치 행렬을 곱해주어 새로운 Q', K', V'에 대해 어텐션을 적용한다.
@@ -85,7 +86,7 @@ $$ \operatorname{Head_i}=\operatorname{Attention(Q_i, K_i, V_i)}  \\ $$
 $$ \left (\begin{array}{ccc} 1\ 2\ 3 \\ 4\ 5\ 6\end{array}\right)과 \left (\begin{array}{ccc} 7\ 8\ 9 \\  0\ 1 \ 2 \end{array}\right)를\ 이어붙이면  \left (\begin{array}{ccc} 1\ 2\ 3\ 7\ 8\ 9 \\  4\ 5\ 6\ 0\ 1 \ 2 \end{array}\right)이다.$$
 )  
 이제 마지막으로,   
-이어 붙여진 value행렬에 가중치 행렬을 곱해서 최종 출력한다.
+이어 붙여진 value행렬에 가중치 행렬을 곱한다.
 
 $$ \operatorname{Multi-Head(Q,K,V) = \operatorname{Concat(Head_1, Head_2,\ldots,Head_h)}W^{\operatorname{Out}}}$$
 
@@ -97,14 +98,14 @@ $$ \operatorname{Multi-Head(Q,K,V) = \operatorname{Concat(Head_1, Head_2,\ldots,
 이렇게 다른 부분 공간에서의 어텐션이 가지는 의미는 각 벡터를 단어 벡터로 생각했을 때 쉽게 이해할 수 있다.
 
 현재 갖고 있는 
-key, vlaue 쌍을 (사과, apple), (멜론, melon)라고 하자.
-새로운 Query를 수박이라고 했을 때, 얻고자 하는 value는 watermelon이다.  
+key, vlaue 쌍을 (사과, apple), (멜론, melon)라고 하자.  
+Query를 수박이라고 했을 때, 얻고자 하는 value는 watermelon이다.  
 
 어텐션을 한번 적용(single-head attention)하면 (수박, 사과), (수박, 멜론)의 유사도를 측정하고, 그 유사도에 비례하게 apple과 melon을 더하여 새로운 value를 얻을 것이다.  
 
 멀티 헤드 어텐션은 우선 수박, 사과, 멜론, apple, melon의 색깔, 모양, 줄무늬 등의 h개의 성분 벡터 각각에 대해 attention을 수행한다. 그 뒤 얻은 h개의 value들; 색깔과 모양, 줄무늬 등을 종합하여 최종value를 출력한다.
 
-즉, 멀티 헤드 어텐션은 사람으로 치면 다양한 방향에서 객체를 분석한 뒤 그 분석 결과를 종합하여 최종 결과물을 얻는 방법이라고 볼 수 있다.  
+즉, 멀티 헤드 어텐션은 다양한 방향에서 객체를 분석한 뒤 그 분석 결과를 종합하여 최종 결과물을 얻는 방법이라고 볼 수 있다.  
 
 (참고: 위 예시는 필자의 주관적인 해석이다.)
 
