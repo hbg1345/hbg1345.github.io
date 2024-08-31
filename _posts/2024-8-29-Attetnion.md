@@ -64,3 +64,55 @@ key벡터의 차원이 커지면, 스칼라 곱이 매우 큰 값을 가질 수 
 
 $$ \operatorname{Scaled-Attention}(Q, K, V)=\operatorname{softmax}\left({\frac{QK^T}{\sqrt{d_k}}}\right) V $$
 
+>## Multi-Head Attention
+Multi-Head(layer) attention은 어텐션을 여러 번 **병렬**로 적용하는 방법이다.  
+물론, 같은 Q, K, V에 대한 어텐션 함수의 출력은 항상 같다.  
+그래서 각 행렬에 적절한 가중치 행렬을 곱해주어 새로운 Q', K', V'에 대해 어텐션을 적용한다.
+
+예를 들어 h개의 어텐션 헤드가 있다고 하자.  
+
+i번 째 어텐션 층(헤드)에는 다음과 같이 원래 행렬에 가중치 행렬이 곱해진 새로운 행렬이 입력으로 들어간다.
+
+$$ Q_i=QW_i^{\operatorname{Query},}\ K_i=KW_{i}^{\operatorname{Key}},\  V_i=VW_{i}^{\operatorname{Value}} $$
+
+i번 째 어텐션 헤드의 출력은 다음과 같다.
+$$ \operatorname{Head_i}=\operatorname{Attention(Q_i, K_i, V_i)}  \\ $$
+
+이제 h개의 어텐션 행렬을 concatenate해서 하나의 행렬로 만든다.  
+
+(참고: 여기서 concatenate란 단순히 이어 붙이는 것을 의미한다.  
+예를 들어 
+$$ \left (\begin{array}{ccc} 1\ 2\ 3 \\ 4\ 5\ 6\end{array}\right)과 \left (\begin{array}{ccc} 7\ 8\ 9 \\  0\ 1 \ 2 \end{array}\right)를\ 이어붙이면  \left (\begin{array}{ccc} 1\ 2\ 3\ 7\ 8\ 9 \\  4\ 5\ 6\ 0\ 1 \ 2 \end{array}\right)이다.$$
+)  
+이제 마지막으로,   
+이어 붙여진 value행렬에 가중치 행렬을 곱해서 최종 출력한다.
+
+$$ \operatorname{Multi-Head(Q,K,V) = \operatorname{Concat(Head_1, Head_2,\ldots,Head_h)}W^{\operatorname{Out}}}$$
+
+>## 어텐션을 여러 번 하는 이유
+
+가중치 행렬을 곱해서 크기를 작게 조정하는 것은 행 벡터 각각을 새로운 부분 공간으로 프로젝션하는 것과 같다.  
+어텐션 헤드마다 프로젝션에 사용하는 가중치가 다르므로 각 헤드의 출력은 서로 다른 부분 공간에서의 어텐션 값이다.  
+
+이렇게 다른 부분 공간에서의 어텐션이 가지는 의미는 각 벡터를 단어 벡터로 생각했을 때 쉽게 이해할 수 있다.
+
+현재 갖고 있는 
+key, vlaue 쌍을 (사과, apple), (멜론, melon)라고 하자.
+새로운 Query를 수박이라고 했을 때, 얻고자 하는 value는 watermelon이다.  
+
+어텐션을 한번 적용(single-head attention)하면 (수박, 사과), (수박, 멜론)의 유사도를 측정하고, 그 유사도에 비례하게 apple과 melon을 더하여 새로운 value를 얻을 것이다.  
+
+멀티 헤드 어텐션은 우선 수박, 사과, 멜론, apple, melon의 색깔, 모양, 줄무늬 등의 h개의 성분 벡터 각각에 대해 attention을 수행한다. 그 뒤 얻은 h개의 value들; 색깔과 모양, 줄무늬 등을 종합하여 최종value를 출력한다.
+
+즉, 멀티 헤드 어텐션은 사람으로 치면 다양한 방향에서 객체를 분석한 뒤 그 분석 결과를 종합하여 최종 결과물을 얻는 방법이라고 볼 수 있다.  
+
+(참고: 위 예시는 필자의 주관적인 해석이다.)
+
+
+
+
+
+
+
+
+
