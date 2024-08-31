@@ -20,22 +20,25 @@ query, key, value, 결과값은 모두 벡터이다.
 
 $$ \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left({Q K^T}\right) V $$
 
-(참고: 앞으로 나오는 벡터는 모두 **열 벡터**이고, 굵은 글씨로 표기되었다.)
+(참고: 앞으로 나오는 벡터는 모두 **행 벡터**이고, 굵은 글씨로 표기되었다.)
 
 위 수식에서 **Q: Query, K: Key, V: Value** 이다.  
-모두 행렬의 형태인데, 단순하게 Q를 열이 1개인 행렬, 즉 열 벡터 $$ \mathbf{q} $$ 로 가정하자.
+모두 행렬의 형태인데, 단순하게 Q를 행이 1개인 행렬, 즉 행 벡터 
+$$ \mathbf{q} $$ 
+로 가정하자.
 
 n개의 (key, value)쌍이 있다고 가정하면  
 
-$$ K = (\mathbf{k_1}, \mathbf{k_2}, \ldots , \mathbf{k_n}),\  V = (\mathbf{v_1}, \mathbf{v_2}, \ldots, \mathbf{v_n}) $$ 
+$$ K = \left (\begin{array}{ccc} \mathbf{k_1} \\ \mathbf{k_2}\\ \vdots \\  \mathbf{k_n} \end{array} \right ),\  V = \left (\begin{array}{ccc} \mathbf{v_1} \\ \mathbf{v_2}\\ \vdots \\  \mathbf{v_n} \end{array} \right ) $$ 
 이다.
 
-$$ \mathbf{q}K^T = \mathbf{q} \left (\begin{array}{ccc} \mathbf{k_1^T} \\ \mathbf{k_2^T} \\ \vdots \\ \mathbf{k_n^T} \end{array} \right) = \left (\begin{array}{ccc} \mathbf{qk_1^T} \\ \mathbf{qk_2^T} \\ \vdots \\ \mathbf{qk_n^T} \end{array} \right)=\left (\begin{array}{ccc} \mathbf{q \cdot k_1} \\ \mathbf{q \cdot k_2} \\ \vdots \\ \mathbf{q\cdot k_n} \end{array} \right)$$
+$$ \mathbf{q}K^T = \mathbf{q} (\mathbf{k_1^T}, \mathbf{k_2^T} , \ldots, \mathbf{k_n^T}  )= (\mathbf{qk_1^T}, \mathbf{qk_2^T} , \ldots, \mathbf{qk_n^T}  )=(\mathbf{q\cdot k_1}, \mathbf{q\cdot k_2} , \ldots, \mathbf{q\cdot k_n}  )$$
 
 각 행은 벡터 q와 해당 key벡터의 스칼라 곱으로, 벡터 간의 유사도를 의미한다.  
-$$ qK^T$$ vector에 softmax를 적용하면 이제 가중치 벡터 W를 얻을 수 있다.
+$$ qK^T$$
+vector에 softmax를 적용하면 이제 가중치 벡터 W를 얻을 수 있다.
 
-$$ W = \operatorname{softmax}(\mathbf{q}K^T)=\left (\begin{array}{ccc} w_1 \\ w_2 \\ \vdots \\ w_n \end{array} \right), \sum_{i=1}^n w_i = 1 \\ Attention(Q, K, V) = WV = \left (\begin{array}{ccc} w_1 \\ w_2 \\ \vdots \\ w_n \end{array} \right)V\\ \left (\begin{array}{ccc} w_1 \\ w_2 \\ \vdots \\ w_n \end{array} \right)(\mathbf{v_1},\mathbf{v_2}, \ldots,\mathbf{v_n})=\sum_{i=1}^nw_i\mathbf{v_i}\\ \therefore Attention(Q, K, V)=\sum_{i=1}^nw_i\mathbf{v_i}$$
+$$ W = \operatorname{softmax}(\mathbf{q}K^T)=( w_1, w_2,  \ldots,  w_n ), \sum_{i=1}^n w_i = 1 \\ Attention(Q, K, V) = WV = ( w_1, w_2,  \ldots,  w_n )V\\ ( w_1, w_2,  \ldots,  w_n )\left (\begin{array}{ccc} \mathbf{v_1} \\ \mathbf{v_2}\\ \vdots \\  \mathbf{v_n} \end{array} \right )\\ \therefore Attention(Q, K, V)=\sum_{i=1}^nw_i\mathbf{v_i}$$
 
 즉, 어텐션 함수는 이미 갖고 있는 n개의 key와 value의 관계 데이터를 이용하여 새로운 key,즉 q에 해당하는 value를 얻는 방법이라고 할 수 있다.  
 
