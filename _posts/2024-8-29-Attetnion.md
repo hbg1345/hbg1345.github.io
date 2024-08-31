@@ -77,6 +77,7 @@ i번 째 어텐션 층(헤드)에는 다음과 같이 원래 행렬에 가중치
 $$ Q_i=QW_i^{\operatorname{Query},}\ K_i=KW_{i}^{\operatorname{Key}},\  V_i=VW_{i}^{\operatorname{Value}} $$
 
 i번 째 어텐션 헤드의 출력은 다음과 같다.
+
 $$ \operatorname{Head_i}=\operatorname{Attention(Q_i, K_i, V_i)}  \\ $$
 
 이제 h개의 어텐션 행렬을 concatenate해서 하나의 행렬로 만든다.  
