@@ -159,7 +159,7 @@ pos는 시퀀스 내에서 단어의 위치이고, d_model은 단어 벡터의 �
 디코더 sublayer에서는 인코더의 마지막 sublayer의 출력 행렬 만들어진 key, value matrix와 셀프 어텐션한 query행렬로 어텐션을 수행한다. 이후 FFN에 전달되고 다음 sublayer로 넘어간다 마지막은 softmax를 한 뒤 단어들의 확률을 출력한다.
 
 인코더의 입력을 질문, 디코더의 입력을 현재까지의 응답이라고 해보자.
-인코더의 입력: What is your name? 
+인코더의 입력: What is your name?  
 디코더의 입력: My name is 
 
 셀프 어텐션은 각 문장 내에서 단어 간 정보를 섞는 효과를 준다.  
