@@ -125,9 +125,7 @@ Query를 수박이라고 했을 때, 얻고자 하는 value는 watermelon이다.
 > ## Masked Attetntion
 
 Attetnion은 단어 시퀀스가 통째로 입력으로 들어가기 때문에, i번째에 오는 단어를 예측하기 위해서는 i이상의 위치에 있는 단어 시퀀스가 입력으로 전달되지 않도록 해야 한다. Masked Attention은 softmax를 시행하기 전, i이상 위치의 값을 모두
-
-$$ -\infin $$
-
+$$ \mathbf{q} $$ 
 로 설정한다.  
 이렇게 하면, 소프트맥스 이후 값이 모두 0이 되어, i이후 단어의 value 벡터들이 attention의 결과에 포함되지 않는다.
 
